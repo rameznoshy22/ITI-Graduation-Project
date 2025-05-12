@@ -1,7 +1,7 @@
 # AI-Powered Educational Platform 🎓🚀
 
 **A modern, scalable e-learning platform built with .NET 8 and AI capabilities**  
-*Developed as ITI Graduation Project by Team: Mahmoud Abdel Kader, Mariam Younis, Youssef Mohamed, Ramez Noshy*
+*Developed as ITI Graduation Project *
 
 [![.NET](https://img.shields.io/badge/.NET-8.0-purple)](https://dotnet.microsoft.com/)
 [![Bootstrap](https://img.shields.io/badge/Bootstrap-5.2-blueviolet)](https://getbootstrap.com/)
@@ -44,7 +44,6 @@
 - Fully responsive UI (mobile-first design)
 - Cross-browser compatibility
 - Accessibility-compliant components
-- Dark/light mode support
 
 ## 🧰 Technology Stack
 
@@ -91,10 +90,11 @@ Database (SQL Server)
 - Payment gateway integration (PayPal)
 
 ## 🧑‍💻 Development Team
+- Ramez Noshy Tawfeek
 - Mahmoud Abdel Kader
 - Mariam Younis
 - Youssef Mohamed
-- Ramez Noshy
+- Nader Sayed
 
 ## 🔧 Getting Started
 
