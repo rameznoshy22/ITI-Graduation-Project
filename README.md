@@ -71,18 +71,18 @@
 - Unit of Work + Generic Repository Patterns
 - ViewModel-Driven UI Design
 
-## 🏗️ System Architecture
 
-▸ **Presentation Layer** (Razor Pages)  
-  │  
-  ▼  
-▸ **Business Logic Layer** (Services)  
-  │  
-  ▼  
-▸ **Data Access Layer** (Repositories)  
-  │  
-  ▼  
-▸ **Database** (SQL Server)
+## 🏗️ Architecture Layers
+
+| Layer                      | Technology          |
+|----------------------------|---------------------|
+| **Presentation Layer**     | Razor Pages         |
+| ⬇                          |                     |
+| **Business Logic Layer**   | Services            |
+| ⬇                          |                     |
+| **Data Access Layer**      | Repositories        |
+| ⬇                          |                     |
+| **Database**               | SQL Server          |
 
 ## 🚀 Key Differentiators
 - AI-enhanced personalized learning paths
