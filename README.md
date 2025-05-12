@@ -72,14 +72,17 @@
 - ViewModel-Driven UI Design
 
 ## 🏗️ System Architecture
-- **Presentation Layer** (Razor Pages)
-  ↓  
-- **Business Logic Layer** (Services)  
-  ↓  
-- **Data Access Layer** (Repositories)  
-  ↓  
-- **Database** (SQL Server)
 
+▸ **Presentation Layer** (Razor Pages)  
+  │  
+  ▼  
+▸ **Business Logic Layer** (Services)  
+  │  
+  ▼  
+▸ **Data Access Layer** (Repositories)  
+  │  
+  ▼  
+▸ **Database** (SQL Server)
 
 ## 🚀 Key Differentiators
 - AI-enhanced personalized learning paths
