@@ -1,0 +1,382 @@
+﻿@model IEnumerable<CourseViewModel>
+
+@{
+    ViewData["Title"] = "الرئيسية";
+    @Html.Partial("~/Views/Shared/Styling.cshtml")
+    Layout = null;
+}
+@Html.Partial("_Header")
+
+
+<style>
+    .fo {
+        font-family: "Cairo", sans-serif;
+    }
+
+    /* Course Item Styling */
+    .course-item {
+        min-height: 520px;
+        max-height: 600px;
+        display: flex;
+        flex-direction: column;
+        transition: all 0.3s ease;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        margin-bottom: 20px;
+    }
+
+        .course-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+
+        .course-item img {
+            min-height: 200px;
+            max-height: 200px;
+            width: 100%;
+            object-fit: cover;
+        }
+
+        .course-item .position-relative {
+            flex: 0 0 auto;
+        }
+
+        .course-item .text-center {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 20px;
+        }
+
+        .course-item h5 {
+            min-height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+        }
+
+        .course-item p {
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            min-height: 72px;
+            color: #555;
+        }
+
+        .course-item .d-flex {
+            flex: 0 0 auto;
+            
+        }
+
+        .course-item h3 {
+            color: #2c3e50;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+
+    .position-absolute.bottom-0 {
+        transition: opacity 0.3s ease;
+    }
+
+    .course-item:hover .position-absolute.bottom-0 {
+        opacity: 1;
+    }
+
+  
+  
+    .teacher-image {
+        width: 100%;
+        height: auto; 
+        display: block; 
+        margin: 0 auto; 
+        border-radius: 8px; 
+    }
+    /* Responsive adjustments */
+    @@media (max-width: 768px) {
+        .course-item {
+            min-height: auto;
+            max-height: none;
+        }
+
+        .position-absolute.bottom-0 {
+            opacity: 1;
+        }
+
+        .course-item p {
+            min-height: auto;
+            -webkit-line-clamp: 2;
+        }
+    }
+</style>
+
+<script src="https://cdn.botpress.cloud/webchat/v2.4/inject.js"></script>
+<script src="https://files.bpcontent.cloud/2025/04/26/04/20250426045504-IYRYAM1V.js"></script>
+
+<body>
+
+    <!-- Carousel Start -->
+    <div class="container-fluid p-0 mb-5">
+        <div class="owl-carousel header-carousel position-relative">
+
+            <!-- Slide 2 -->
+            <div class="owl-carousel-item position-relative">
+                <img src="@Url.Content("~/img/carousel-2.jpg")" class="img-fluid" alt="">
+
+                <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center" style="background: rgba(24, 29, 56, .7);">
+                    <div class="container">
+                        <div class="row justify-content-end text-end">
+                            <div class="col-sm-10 col-lg-8">
+                                <h5 class="text-primary fo mb-3 animated slideInDown"> كورسات مميزة لكل مراحل الثانوية العامة </h5>
+                                <h1 class="display-3 fo text-white animated slideInDown">تعلم بكل سهولة من منزلك</h1>
+                                <p class="fs-5 text-white fo mb-4 pb-2">محتوى تعليمي شامل يغطي كل ما تحتاجه لتحقيق تميزك في الثانوية العامة</p>
+                                <div class="d-flex justify-content-end gap-3 flex-wrap animated fadeInUp" style="animation-delay: 0.6s">
+                                    @Html.ActionLink("اقرأ المزيد", "About", "Home", null, new { @class = "btn btn-primary fo py-md-3 px-md-5 me-2" })
+
+                                    @if (!User.Identity.IsAuthenticated)
+                                    {
+                                        <a asp-controller="Account" asp-action="Login" class="btn btn-light fo py-md-3 px-md-5">
+                                            ابدأ الآن
+                                        </a>
+                                    }
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- Carousel End -->
+    <!-- About Start -->
+    <div class="container-xxl py-5" dir="rtl">
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s" style="min-height: 400px;">
+                    <div class="position-relative h-100">
+                        <img class="img-fluid position-absolute w-100 h-100" src="~/img/about.jpg" alt="" style="object-fit: cover;">
+                    </div>
+                </div>
+                <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.3s">
+                    <h1 class="mb-4 fo">مرحبًا بك في منصة مفهوم التعليمية</h1>
+                    <p class="mb-4">
+                        نحن نؤمن بأن التعليم يجب أن يكون متاحًا وسهلًا للجميع. لذلك أنشأنا منصة متكاملة تقدم محتوى تعليمي عالي الجودة للطلاب في مختلف المراحل الدراسية.
+                    </p>
+                    <p class="mb-4">
+                        تقدم المنصة دروسًا تفاعلية، فيديوهات تعليمية، تدريبات واختبارات دورية، تُمكنك من المذاكرة بطريقة منظمة تساعدك على التفوق والنجاح.
+                    </p>
+                    <div class="row gy-2 gx-4 mb-4">
+                        <div class="col-sm-6">
+                            <p class="mb-0"><i class="fa fa-arrow-right text-primary ms-2"></i>مراجعات شهرية</p>
+                        </div>
+                        <div class="col-sm-6">
+                            <p class="mb-0"><i class="fa fa-arrow-right text-primary ms-2"></i>دروس أونلاين مباشرة</p>
+                        </div>
+                        <div class="col-sm-6">
+                            <p class="mb-0"><i class="fa fa-arrow-right text-primary ms-2"></i>تواصل مع المستر دايما</p>
+                        </div>
+                        <div class="col-sm-6">
+                            <p class="mb-0"><i class="fa fa-arrow-right text-primary ms-2"></i>اختبارات تقييمية مستمرة</p>
+                        </div>
+                        <div class="col-sm-6">
+                            <p class="mb-0"><i class="fa fa-arrow-right text-primary ms-2"></i>شروحات مبسطة ومنظمة</p>
+                        </div>
+                        <div class="col-sm-6">
+                            <p class="mb-0"><i class="fa fa-arrow-right text-primary ms-2"></i>متابعة دورية لمستوى الطالب</p>
+                        </div>
+                    </div>
+                    <a class="btn btn-primary fo py-3 px-5 mt-2" href="#">اعرف المزيد</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Service Start -->
+    <div class="container-xxl py-5">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="service-item text-center pt-3 h-100">
+                        <div class="p-4">
+                            <i class="fa fa-3x fa-graduation-cap text-primary mb-4"></i>
+                            <h5 class="mb-3 fo">خبرة في التدريس</h5>
+                            <p>خبرة عالية في شرح وتبسيط المناهج الدراسية بأسلوب سهل وسلس وتقديم أمثلة واقعية تساعد على الفهم  </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="service-item text-center pt-3 h-100">
+                        <div class="p-4">
+                            <i class="fa fa-3x fa-globe text-primary mb-4"></i>
+                            <h5 class="mb-3 fo">حصص اونلاين </h5>
+                            <p>دروس مباشرة وتفاعلية مع مراجعات شاملة واختبارات تدريبية تُحاكي الامتحانات الفعلية</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.5s">
+                    <div class="service-item text-center pt-3 h-100">
+                        <div class="p-4">
+                            <i class="fa fa-3x fa-home text-primary mb-4"></i>
+                            <h5 class="mb-3 fo">وفر وقتك</h5>
+                            <p> تابع دروسك من البيت في أي وقت يناسبك مع محتوى شامل من شرح وواجبات واختبارات دورية</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.7s">
+                    <div class="service-item text-center pt-3 h-100">
+                        <div class="p-4">
+                            <i class="fa fa-3x fa-book-open text-primary mb-4"></i>
+                            <h5 class="mb-3 fo">اعرف مستواك</h5>
+                            <p>اختبارات تقييمية دورية تساعدك على معرفة نقاط قوتك وضعفك وتحسين مستواك باستمرار</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Service End -->
+    <!-- Team Start -->
+    <div class="container-xxl py-5 bg-light">
+        <div class="container">
+            <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+                <h6 class="section-title bg-light text-center text-primary px-3 fo">مع خبير اللغة العربية</h6>
+                <h1 class="mb-5 fo">م/ علاء الدين عبدالحميد</h1>
+            </div>
+
+            <div class="row justify-content-center">
+                <div class="col-lg-6 col-md-10 wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="card border-0 shadow-sm overflow-hidden h-100">
+                        <div class="team-item bg-white h-100 d-flex flex-column">
+                            <!-- Full-width Image Section -->
+                            <div class="overflow-hidden ratio ratio-4x3">
+                                <img class=" teacher-image img-fluid " src="img/team-1.jpg" alt="م/ علاء الدين عبدالحميد">
+                            </div>
+
+                            <!-- Social Links -->
+                            <div class="position-relative d-flex justify-content-center" style="margin-top: -23px;">
+                                <div class="bg-white d-flex justify-content-center pt-2 px-3 rounded-pill shadow-sm">
+                                    <a class="btn btn-sm-square btn-primary mx-1 rounded-circle" href="https://www.facebook.com/alaa.aldein.902">
+                                        <i class="fab fa-facebook-f"></i>
+                                    </a>
+                                    <a class="btn btn-sm-square btn-danger mx-1 rounded-circle" href="">
+                                        <i class="fab fa-youtube"></i>
+                                    </a>
+                                    <a class="btn btn-sm-square btn-success mx-1 rounded-circle" href="https://wa.me/201011531956">
+                                        <i class="fab fa-whatsapp"></i>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div class="text-center p-4">
+                                <h5 class="text-primary fo mb-2">مدرس أول لغة عربية</h5>
+                                <div class="d-flex justify-content-center mb-3">
+                                    <span class="badge bg-light text-dark fo">
+                                        <i class="fas fa-user-graduate text-primary me-1"></i> 10+ سنة خبرة
+                                    </span>
+                                </div>
+                                <p class="fo mb-0">خبرة أكثر من 10 عامًا في تدريس اللغة العربية بمنهجية مميزة تساعد الطلاب على الفهم والتفوق</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Courses Start -->
+    <div class="container-xxl py-5">
+        <div class="container">
+            <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+                <h6 class="section-title bg-white text-center text-primary px-3 fo">كورساتنا</h6>
+                <h1 class="mb-5 fo"> احدث الكورسات  </h1>
+            </div>
+            <div class="row g-4 justify-content-center">
+
+
+                @foreach (var course in Model)
+                {
+                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                        <div class="course-item bg-light course-card">
+                            <div class="position-relative overflow-hidden course-img-container">
+                                <img class="img-fluid course-img" src="~/files/imgCourse/@course.Image" alt="@course.Title">
+                                <div class="w-100 d-flex justify-content-center position-absolute bottom-0 start-0 mb-4">
+                                    @if (User.Identity.IsAuthenticated)
+                                    {
+                                        if (User.IsInRole("Student"))
+                                        {
+                                            @if (course.IsEnrolled == true)
+                                            {
+                                                <a asp-controller="Course" asp-action="DetailsWithLessons" asp-route-id="@course.ID" class="flex-shrink-0 btn btn-sm btn-primary enroll-btn fo">
+                                                    استكمال الدورة
+                                                </a>
+                                            }
+                                            else
+                                            {
+                                                <a asp-controller="Checkout" asp-action="Index"
+                                                   asp-route-amount="@course.Price.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture)"
+                                                   asp-route-courseId="@course.ID" class="flex-shrink-0 btn btn-sm btn-primary enroll-btn fo">
+                                                    اشترك في الدورة
+                                                </a>
+                                            }
+
+                                        }
+                                        else if (User.IsInRole("Instructor"))
+                                        {
+                                            <a asp-controller="Course" asp-action="DetailsWithLessons" asp-route-id="@course.ID"
+                                               class="flex-shrink-0 btn btn-sm btn-primary enroll-btn fo">
+                                                تفاصيل الكورس
+                                            </a>
+                                        }
+                                    }
+                                    else
+                                    {
+                                        <a asp-controller="Account" asp-action="Login"
+                                           class="flex-shrink-0 btn btn-sm btn-primary enroll-btn fo">
+                                            اشترك الآن
+                                        </a>
+                                    }
+                                </div>
+                            </div>
+                            <div class="text-center p-4 pb-0 course-content">
+                                <h3 class="course-price">@course.Price.ToString("C")</h3>
+                                <h5 class="course-title fo">@course.Title</h5>
+                                <p class="course-description fo">@course.Description</p>
+                            </div>
+                            <div class="d-flex border-top course-meta">
+                                <small class="flex-fill text-center border-end py-2 course-meta-item">
+                                    <i class="fa fa-user-tie text-primary me-2"></i>م/ علاء الدين
+                                </small>
+                                <small class="flex-fill text-center border-end py-2 course-meta-item">
+                                    <i class="fa fa-clock text-primary me-2"></i>@course.Duration أسابيع
+                                </small>
+                                <small class="flex-fill text-center py-2 course-meta-item">
+                                    <i class="fa fa-user text-primary me-2"></i>متوفر
+                                </small>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+        </div>
+    </div>
+    <!-- Courses End -->
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/lib/wow/wow.min.js"></script>
+    <script src="~/lib/easing/easing.min.js"></script>
+    <script src="~/lib/waypoints/waypoints.min.js"></script>
+    <script src="~/lib/owlcarousel/owl.carousel.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="~/js/main.js" asp-append-version="true"></script>
+
+</body>
+@Html.Partial("_Footer")

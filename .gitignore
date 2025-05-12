@@ -1,0 +1,22 @@
+﻿# Build results
+[Bb]in/
+[Oo]bj/
+
+# Visual Studio cache/options directory
+.vs/
+
+# User-specific files
+*.user
+*.userosscache
+*.suo
+*.userprefs
+
+# Configuration and sensitive data
+appsettings.Development.json
+
+# Logs and temporary files
+[Ll]ogs/
+*.log
+[Tt]emp/
+[Tt]mp/
+appsettings.json

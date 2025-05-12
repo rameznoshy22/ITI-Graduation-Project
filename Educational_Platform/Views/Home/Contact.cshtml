@@ -1,0 +1,135 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model Data_access_layer.model.Message
+@{
+    ViewData["Title"] = "Contact";
+    @Html.Partial("~/Views/Shared/Styling.cshtml")
+    Layout = null;
+}
+@Html.Partial("_Header")
+@if (TempData["ContactSuccess"] != null)
+{
+    <div class="alert alert-success" style="direction:rtl;">
+        @TempData["ContactSuccess"]
+    </div>
+}
+@if (TempData["ContactError"] != null)
+{
+    <div class="alert alert-danger" style="direction:rtl;">
+        @TempData["ContactError"]
+    </div>
+}
+
+<style>
+    .fo {
+        font-family: "Cairo", sans-serif;
+    }
+    .form-floating > .form-control:dir(rtl),
+    .form-floating > .form-control-plaintext:dir(rtl),
+    .form-floating > .form-select:dir(rtl) {
+        text-align: right;
+    }
+
+    .form-floating > label:dir(rtl) {
+        right: 0;
+        left: auto;
+        transform-origin: right top;
+    }
+
+</style>
+<div class="container-xxl py-5">
+    <div class="container">
+        <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+            <h6 class="section-title bg-white text-center text-primary px-3 fo">تواصل معنا</h6>
+            <h1 class="mb-5 fo">راسلنا لأي استفسار</h1>
+        </div>
+        <div class="row justify-content-center g-4">
+            <div class="col-lg-6 col-md-12 wow fadeInUp" data-wow-delay="0.5s">
+                <form asp-action="Contact" method="post">
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <div class="form-floating">
+                                <input asp-for="Name" class="form-control fo" id="name" placeholder="الاسم" dir="rtl" style="text-align: right; direction:rtl;" />
+                                <label for="name" class="fo" dir="rtl" style="text-align: right; direction:rtl;">الاسم</label>
+                                <span asp-validation-for="Name" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-floating">
+                                <input asp-for="Email" class="form-control fo" id="email" placeholder="البريد الإلكتروني" dir="rtl" style="text-align: right;" />
+                                <label for="email" dir="rtl" style="text-align: right; direction:rtl;">البريد الإلكتروني</label>
+                                <span asp-validation-for="Email" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-floating">
+                                <input asp-for="Subject" class="form-control fo" id="subject" placeholder="الموضوع" dir="rtl" style="text-align: right;" />
+                                <label for="subject" dir="rtl" style="text-align: right; direction:rtl;">الموضوع</label>
+                                <span asp-validation-for="Subject" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="form-floating">
+                                <textarea asp-for="MessageBody" class="form-control" id="message" placeholder="اكتب رسالتك هنا" style="height: 150px; text-align: right;" dir="rtl"></textarea>
+                                <label for="message" dir="rtl" style="text-align: right; direction:rtl;">الرسالة</label>
+                                <span asp-validation-for="MessageBody" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <button type="submit" class="btn btn-primary w-100 py-3 fo">إرسال الرسالة</button>
+                        </div>
+                    </div>
+                </form>
+
+                @section Scripts {
+                    <partial name="_ValidationScriptsPartial" />
+                }
+
+            </div>
+
+
+
+            <div class="col-lg-6 col-md-12 wow fadeInUp fo" data-wow-delay="0.1s" dir="rtl">
+                <h5 class="fo">ابقَ على تواصل</h5>
+                <p class="mb-4">
+                    تواصل معنا دائمًا في أي وقت يناسبك،<br /> فنحن هنا لخدمتك والإجابة عن جميع استفساراتك. <br /> سواء كان لديك سؤال بخصوص الدروس، أو تواجه أي مشكلة فنية.
+                </p>
+
+                <div class="d-flex align-items-center mb-3">
+                    <div class="d-flex align-items-center justify-content-center flex-shrink-0 bg-primary" style="width: 50px; height: 50px;">
+                        <i class="fa fa-map-marker-alt text-white"></i>
+                    </div>
+                    <div class="me-3">
+                        <h5 class="text-primary fo">المكتب</h5>
+                        <p class="mb-0">123 شارع، الفيوم، مصر</p>
+                    </div>
+                </div>
+
+                <div class="d-flex align-items-center mb-3">
+                    <div class="d-flex align-items-center justify-content-center flex-shrink-0 bg-primary" style="width: 50px; height: 50px;">
+                        <i class="fa fa-phone-alt text-white"></i>
+                    </div>
+                    <div class="me-3">
+                        <h5 class="text-primary fo">الهاتف</h5>
+                        <p class="mb-0">0101 153 1956</p>
+                    </div>
+                </div>
+
+                <div class="d-flex align-items-center">
+                    <div class="d-flex align-items-center justify-content-center flex-shrink-0 bg-primary" style="width: 50px; height: 50px;">
+                        <i class="fa fa-envelope-open text-white"></i>
+                    </div>
+                    <div class="me-3">
+                        <h5 class="text-primary fo">البريد الإلكتروني</h5>
+                        <p class="mb-0">alaa422@gmail.com</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- نهاية قسم التواصل -->
+<!-- Contact End -->
+@Html.Partial("_Footer") 
