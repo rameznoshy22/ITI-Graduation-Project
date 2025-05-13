@@ -1,4 +1,4 @@
-# AI-Powered Educational Platform 🎓🚀
+# Educational Platform "مفهوم" (Mafhoum) 🎓🚀
 
 **A modern, scalable e-learning platform built with .NET 8 and AI capabilities**  
 *Developed as ITI Graduation Project *
